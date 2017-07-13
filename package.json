@@ -1,0 +1,14 @@
+{
+  "name": "node-red-contrib-summariser",
+  "version": "0.0.1",
+  "description": "Node-RED node to summarise data",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "node-red": {
+    "nodes": {
+      "summariser": "summariser/summariser.js"
+    }
+  },
+  "author": "Adam Hammond"
+}

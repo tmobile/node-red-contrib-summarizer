@@ -1,2 +1,2 @@
 # node-red-contrib-summariser
-Node-RED node to summarise arrays of data
+A Node-RED node that generates summaries from arrays of data
