@@ -22,7 +22,7 @@
             var rule = this.rules[index];
             var label = "";
             if (rule) {
-                label = rule.field||"";
+                label = rule.op + "(" + rule.field + ")";
             };
             return label
         },
