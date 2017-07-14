@@ -31,3 +31,9 @@ The `Mean` rule calculates the mean of the numerical values in the given field a
 **Group**
 
 The `Group` rule calculates the frequency that every value in the given field occurs in the array. It returns an object where the values are the key, and the frequencies a returned as the value for the given key. This can be passed directly into a `split` node where the keys are emitted in `msg.topic` ready for the node-red-dashboard chart nodes.
+
+**Join**
+
+This rule joins all of the values in the given field across the array.
+If given, the values are separated by string in the separator field in the configuration.
+It returns a string in `msg.payload`.

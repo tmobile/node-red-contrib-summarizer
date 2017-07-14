@@ -22,6 +22,8 @@ module.exports = function(RED) {
                   retPayload[idx] = {payload: _.meanBy(data, rule.field)}
                 } else if (rule.op == "group") {
                   retPayload[idx] = {payload: _.countBy(data, rule.field)}
+                } else if (rule.op == "join") {
+                  retPayload[idx] = {payload: _.map(data, rule.field).join(rule.sep)}
                 }
               })
             };
