@@ -42,7 +42,8 @@
                   {val : "count", text: 'Count'},
                   {val : "mean", text: 'Mean'},
                   {val : "group", text: 'Group'},
-                  {val : "join", text: 'Join'}
+                  {val : "join", text: 'Join'},
+                  {val : "extract", text: 'Extract'}
                 ];
 
                 $(arr).each(function() {
@@ -184,13 +185,17 @@ It returns a single number in <code>msg.payload</code>.
 </dd>
 <dt>Sum</dt>
 <dd>This rule calculates the frequency that every value in the given field occurs in the array.
-It returns an object  in <code>msg.payload</code> where the values are the key, and the frequencies are
- the value for the given key. This can be passed directly into a <code>split<code> node where
-  the keys are emitted in <code>msg.topic</code> ready for the node-red-dashboard chart nodes.
+It returns an object in <code>msg.payload</code> where the values are the key, and the frequencies are
+the value for the given key. This can be passed directly into a <code>split</code> node where
+the keys are emitted in <code>msg.topic</code> ready for the node-red-dashboard chart nodes.
 </dd>
 <dt>Join</dt>
 <dd>This rule joins all of the values in the given field across the array.
 If given, the values are separated by string in the separator field in the configuration.
 It returns a string in <code>msg.payload</code>.
+</dd>
+<dt>Extract</dt>
+<dd>This rule returns an array in <code>msg.payload</code>with all of the values for the
+given field across the array.
 </dd>
 </script>

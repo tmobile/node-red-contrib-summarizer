@@ -7,28 +7,31 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             var data = msg.payload;
-            
-            // create return array
-            msg.payload = "";
-            var retPayload = _.times(config.rules.length, function() { return msg });
-            
+
             // if msg.payload is an array, process the rules
             if (_.isArray(data)) {
+              var retMsg = [];
               config.rules.forEach(function(rule, idx) {
+                var rm = RED.util.cloneMessage(msg);
                 if (rule.op == "sum") {
-                  retPayload[idx]["payload"] = _.sumBy(data, rule.field)
+                  rm.payload = _.sumBy(data, rule.field)
                 } else if (rule.op == "count") {
-                  retPayload[idx]["payload"] = _.map(data, rule.field).length
+                  rm.payload = _.map(data, rule.field).length
                 } else if (rule.op == "mean") {
-                  retPayload[idx]["payload"] = _.meanBy(data, rule.field)
+                  rm.payload = _.meanBy(data, rule.field)
                 } else if (rule.op == "group") {
-                  retPayload[idx]["payload"] = _.countBy(data, rule.field)
+                  rm.payload = _.countBy(data, rule.field)
                 } else if (rule.op == "join") {
-                  retPayload[idx]["payload"] = _.map(data, rule.field).join(rule.sep)
-                }
+                  rm.payload = _.map(data, rule.field).join(rule.sep)
+                } else if (rule.op == "extract") {
+                  rm.payload = _.map(data, rule.field)
+                };
+                retMsg.push(rm);
               })
+            } else {
+              var retMsg = _.times(config.rules.length, function() { return RED.util.cloneMessage(msg) });
             };
-            node.send(retPayload);
+            node.send(retMsg);
         });
     }
     RED.nodes.registerType("summariser",SummariserNode);

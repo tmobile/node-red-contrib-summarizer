@@ -37,3 +37,8 @@ The `Group` rule calculates the frequency that every value in the given field oc
 This rule joins all of the values in the given field across the array.
 If given, the values are separated by string in the separator field in the configuration.
 It returns a string in `msg.payload`.
+
+**Extract**
+
+This rule returns an array of all of the values for the given field across the array.
+It returns an array in `msg.payload`.
