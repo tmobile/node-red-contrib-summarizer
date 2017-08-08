@@ -25,6 +25,8 @@ module.exports = function(RED) {
                   rm.payload = _.map(data, rule.field).join(rule.sep)
                 } else if (rule.op == "extract") {
                   rm.payload = _.map(data, rule.field)
+                } else if (rule.op == "cat") {
+                  rm.payload = _.groupBy(data, rule.field)
                 };
                 retMsg.push(rm);
               })
