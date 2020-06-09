@@ -4,9 +4,13 @@ module.exports = function(RED) {
     function SummariserNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        this.input = config.input || "payload";
+        this.inputType = config.inputType || "msg";
 
         node.on('input', function(msg) {
-            var data = msg.payload;
+            var data = RED.util.evaluateNodeProperty(this.input, // "payload"
+              this.inputType, // "msg", "flow", "global"
+              node, msg);
 
             // if msg.payload is an array, process the rules
             if (_.isArray(data)) {

@@ -4,6 +4,11 @@
         color: '#E2D96E',
         defaults: {
             name: { value: "" },
+            input: {
+                value: "payload",
+                validate: RED.validators.typedInput("inputType"),
+            },
+            inputType: { value: "msg" },
             label: { value: "" },
             topic: { value: "" },
             outputs: { value: 1 },
@@ -27,7 +32,15 @@
             return label
         },
         oneditprepare: function() {
-          function generateOption(i, option) {
+            $("#node-input-inputType").val(this.inputType);
+            $("#node-input-input").typedInput({
+                default: this.inputType || "msg",
+                typeField: $("#node-input-inputType"),
+                types: ["msg", "flow", "global"],
+            });
+            $("#node-input-input").typedInput("type", this.inputType);
+
+            function generateOption(i, option) {
                 var container = $('<li/>',{style:"background: #fff; margin:0; padding:8px 0px 0px; border-bottom: 1px solid #ccc;"});
                 var row = $('<div/>').appendTo(container);
                 var row2 = $('<div/>',{style:"padding-top:5px; padding-left:175px;"}).appendTo(container);
@@ -98,6 +111,7 @@
             })
         },
         oneditsave: function() {
+            this.inputType = $("#node-input-input").typedInput("type");
             var options = $("#node-input-option-container").children();
             var node = this;
             node.rules = [];
@@ -116,6 +130,11 @@
 </script>
 
 <script type="text/x-red" data-template-name="summariser">
+  <div class="form-row">
+    <label for="node-input-input"><i class="fa fa-envelope"></i> Input</label>
+    <input type="text" id="node-input-input">
+    <input type="hidden" id="node-input-inputType">
+  </div>
   <div class="form-row">
     <label for="node-input-label"><i class="fa fa-tag"></i> Label</label>
     <input type="text" id="node-input-label" placeholder="optional label">
