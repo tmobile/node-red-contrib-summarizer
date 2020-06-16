@@ -1,20 +1,31 @@
 {
-  "name": "node-red-contrib-summariser",
-  "version": "0.0.9",
-  "description": "Node-RED node to summarise data",
+  "name": "@tmus/node-red-contrib-summarizer",
+  "version": "0.0.0",
+  "description": "Node-RED node to summarize data from an array",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "npm pack"
+  },
   "dependencies": {
     "lodash": "^4.17.4"
   },
-  "repository" : {
-        "type":"git",
-        "url":"https://github.com/hammoaj/node-red-contrib-summariser"
-    },
+  "repository": {
+    "type": "git",
+    "url": "hhttps://github.com/tmobile/node-red-contrib-summarizer"
+  },
   "node-red": {
     "nodes": {
-      "summariser": "summariser/summariser.js"
+      "summarizer": "summarizer/summarizer.js"
     }
   },
-  "keywords": [ "node-red", "summary", "data array", "sum", "count", "mean", "group" ],
-  "author": "Adam Hammond"
+  "keywords": [
+    "node-red",
+    "summary",
+    "data array",
+    "sum",
+    "count",
+    "mean",
+    "group"
+  ],
+  "author": "T-Mobile, based on node-red-contrib-summariser by Adam Hammond"
 }

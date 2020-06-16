@@ -1,0 +1,4 @@
+node-red-contrib-summarizer
+Modifications copyright 2020 T-Mobile USA, Inc
+
+This product includes software developed by Adam Hammond (https://github.com/hammoaj/).

@@ -1,7 +1,9 @@
+// Modifications copyright © 2020 T-Mobile
+
 var _ = require('lodash');
 
 module.exports = function(RED) {
-    function SummariserNode(config) {
+    function summarizerNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         this.input = config.input || "payload";
@@ -41,5 +43,5 @@ module.exports = function(RED) {
             node.send(retMsg);
         });
     }
-    RED.nodes.registerType("summariser",SummariserNode);
+    RED.nodes.registerType("summarizer",summarizerNode);
 }
