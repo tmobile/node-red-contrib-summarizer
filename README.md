@@ -1,5 +1,7 @@
 # node-red-contrib-summarizer
 
+Based on [node-red-contrib-summariser](https://github.com/hammoaj/node-red-contrib-summariser).
+
 A Node-RED node that generates summaries from arrays of data
 
 An array of data is passed in the form:
