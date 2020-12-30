@@ -1,0 +1,11 @@
+This NOTICE file has been created for node-red-contrib-summarizer,
+as code editor, per the terms and conditions under the Apache 
+license 2.0, dated January 2004. See the license at 
+http://www.apache.org/licenses for more details. Attributions and 
+additional notices pertaining to the source code are to be 
+documented here. The original version of 
+node-red-contrib-summarizer was created by Adam Hammond 
+(https://github.com/hammoaj/) and released on 2017-07-13.
+
+The addition of the input and output fields was completed by 
+T-Mobile, USA, Inc. and released on 2020-06-16.
